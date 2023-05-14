@@ -12,7 +12,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       themeMode: ThemeMode.dark,
-      home: Scaffold(body: Navigation()),
+      home: Scaffold(body: Navigation(),),
     );
   }
 }
