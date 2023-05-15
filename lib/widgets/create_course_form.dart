@@ -18,7 +18,7 @@ class CreateCourseForm extends StatelessWidget {
       decoration: BoxDecoration(
         color: const Color(0xff111111),
         borderRadius: BorderRadius.circular(22),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: Color.fromRGBO(0, 0, 0, .5),
             spreadRadius: 5,
@@ -50,7 +50,7 @@ class CreateCourseForm extends StatelessWidget {
             child: Center(
                 child: GestureDetector(
                     onTap: () => log("Add image"),
-                    child: Icon(
+                    child: const Icon(
                       Icons.add_photo_alternate_outlined,
                       color: Color(0xff333333),
                       size: 40,
