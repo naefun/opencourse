@@ -2,16 +2,27 @@
 # https://github.com/firebase/firebase-tools
 
 name: Deploy to Firebase Hosting on PR
-'on': pull_request
+"on": pull_request
 jobs:
   build_and_preview:
-    if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
+    if: "${{ github.event.pull_request.head.repo.full_name == github.repository }}"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      # The flutter action needs java so include it
+      - uses: actions/setup-java@v1
+        with:
+          java-version: "12.x"
+      # Include the flutter action
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: "stable"
+      # Get flutter packages
+      - run: flutter pub get
+      # Build :D
       - run: flutter build web
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_OPEN_COURSE_TECH }}'
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_OPEN_COURSE_TECH }}"
           projectId: open-course-tech
