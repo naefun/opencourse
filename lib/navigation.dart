@@ -1,10 +1,9 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:open_course/pages/courses.dart';
 import 'package:open_course/pages/home.dart';
 import 'package:open_course/pages/profile.dart';
 import 'package:open_course/pages/settings.dart';
+import 'package:open_course/widgets/create_course_button.dart';
 
 class Navigation extends StatefulWidget {
   const Navigation({Key? key}) : super(key: key);
@@ -42,27 +41,15 @@ class _NavigationState extends State<Navigation> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  const Text(
+                children: const [
+                  Text(
                     "Dashboard",
                     style: TextStyle(
                         fontSize: 30,
                         color: Color(0xFFFFFFFF),
                         fontWeight: FontWeight.bold),
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                        color: const Color(0xff1F6DEE),
-                        borderRadius: BorderRadius.circular(10)),
-                    child: IconButton(
-                      onPressed: () => log("Create course"),
-                      icon: const Icon(
-                        Icons.add,
-                        color: Color(0xff111111),
-                      ),
-                      padding: const EdgeInsets.all(10),
-                    ),
-                  )
+                  CreateCourseButton()
                 ],
               ),
             ),

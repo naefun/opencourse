@@ -32,7 +32,7 @@ class _HomeState extends State<Home> {
                   fontWeight: FontWeight.bold,
                   fontSize: 18),
             ),
-            ResumeCourseCard(),
+            const ResumeCourseCard(),
             const SizedBox(
               height: 60,
             ),
@@ -46,7 +46,7 @@ class _HomeState extends State<Home> {
             const SizedBox(
               height: 20,
             ),
-            CompletedCoursesLineGraph(),
+            const CompletedCoursesLineGraph(),
             const SizedBox(
               height: 60,
             ),
@@ -79,10 +79,10 @@ class _HomeState extends State<Home> {
               rowGap: 20,
               columnGap: 20,
               children: [
-                CourseCard(),
-                CourseCard(),
-                CourseCard(),
-                CourseCard(),
+                const CourseCard(),
+                const CourseCard(),
+                const CourseCard(),
+                const CourseCard(),
               ],
             )
           ],

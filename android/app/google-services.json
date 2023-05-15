@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "691177676500",
+    "project_id": "open-course-tech",
+    "storage_bucket": "open-course-tech.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:691177676500:android:eb3e86e1f1cf62347ba541",
+        "android_client_info": {
+          "package_name": "com.example.open_course"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "691177676500-fesa6j3curk1e2a65r6onsmc8tb46on8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0cC4Dz-IHRAxF15Ih29KcRNdEoBi3yWs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "691177676500-9t91po0u2735ntabj35sfh26i7f53ucs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
