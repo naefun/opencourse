@@ -1,3 +1,3 @@
 # open_course
 
-A new Flutter project.
+Create your own courses from existing youtube videos.
