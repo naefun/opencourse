@@ -11,6 +11,8 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_layout_grid: ^2.0.3
+  flutter_svg: ^2.0.5
+  google_fonts: ^4.0.4
   percent_indicator: ^4.2.3
   syncfusion_flutter_charts: ^21.2.4
 
@@ -21,3 +23,5 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:     
+  - assets/images/

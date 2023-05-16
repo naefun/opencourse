@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:open_course/firebase_options.dart';
 import 'package:open_course/navigation.dart';
+import 'package:open_course/pages/landing.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +21,8 @@ class MainApp extends StatelessWidget {
     return const MaterialApp(
       themeMode: ThemeMode.dark,
       home: Scaffold(
-        body: Navigation(),
+        // body: Navigation(),
+        body: LandingPage(),
       ),
     );
   }
