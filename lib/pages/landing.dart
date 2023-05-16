@@ -82,7 +82,7 @@ class _LandingPageState extends State<LandingPage> {
                 Opacity(
                     opacity: .02,
                     child: SvgPicture.asset(
-                      "../assets/images/patternpad.svg",
+                      "assets/images/patternpad.svg",
                       fit: BoxFit.cover,
                     )),
                 Container(
