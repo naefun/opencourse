@@ -108,68 +108,73 @@ class _LandingPageState extends State<LandingPage> {
                 ))),
               ],
             ),
-            ListView(
-              padding: EdgeInsets.fromLTRB(0, 10, 0, 20),
-              children: [Container(
-                padding: const EdgeInsets.fromLTRB(20, 120, 20, 0),
-                child: Center(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        "Learn.",
-                        style: TextStyle(
-                            color: Color(0xffffffff),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 90),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      const Text(
-                        "Your way.",
-                        style: TextStyle(
-                            color: Color(0xff49C29D),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 90),
-                      ),
-                      const SizedBox(
-                        height: 25,
-                      ),
-                      Container(
-                        width: 330,
-                        child: RichText(
-                          text: TextSpan(
-                            children: [
-                              const TextSpan(
-                                  text:
-                                      'Create courses from educational content available on YouTube, and track your progress as you learn ',
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      color: Color.fromRGBO(255, 255, 255, .6),
-                                      height: 1.5)),
-                              TextSpan(
-                                text: '🌟',
-                                style: GoogleFonts.notoColorEmoji(),
-                              ),
-                            ],
+            Center(
+              child: ListView(
+                shrinkWrap: true,
+                children: [
+                  Center(
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 30, 0, 30),
+                      child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          "Learn.",
+                          style: TextStyle(
+                              color: Color(0xffffffff),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 90),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        const Text(
+                          "Your way.",
+                          style: TextStyle(
+                              color: Color(0xff49C29D),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 90),
+                        ),
+                        const SizedBox(
+                          height: 25,
+                        ),
+                        Container(
+                          width: 330,
+                          child: RichText(
+                            text: TextSpan(
+                              children: [
+                                const TextSpan(
+                                    text:
+                                        'Create courses from educational content available on YouTube, and track your progress as you learn ',
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        color: Color.fromRGBO(255, 255, 255, .6),
+                                        height: 1.5)),
+                                TextSpan(
+                                  text: '🌟',
+                                  style: GoogleFonts.notoColorEmoji(),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      Container(
-                        padding: const EdgeInsets.fromLTRB(45, 5, 45, 5),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(6),
-                            color: const Color(0xff49C29D)),
-                        child: const Text("Sign up"),
-                      )
-                    ],
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        Container(
+                          padding: const EdgeInsets.fromLTRB(45, 5, 45, 5),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(6),
+                              color: const Color(0xff49C29D)),
+                          child: const Text("Sign up"),
+                        )
+                      ],
+                                  ),
+                    ),
                   ),
-                ),
-              )],
+                ],
+              ),
             )
           ],
         ));
