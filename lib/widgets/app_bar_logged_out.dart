@@ -1,7 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:open_course/pages/signup.dart';
+import 'package:open_course/pages/landing.dart';
+import 'package:open_course/pages/login.dart';
 
 class AppBarLoggedOut extends PreferredSize {
   AppBarLoggedOut(
@@ -23,18 +24,27 @@ class AppBarLoggedOut extends PreferredSize {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Container(
-                padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                padding: const EdgeInsets.all(20),
                 child: Center(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      const Text(
-                        "Open Course",
-                        style: TextStyle(
-                            fontSize: 30,
-                            color: Color(0xFFFFFFFF),
-                            fontWeight: FontWeight.bold),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const LandingPage()),
+                          );
+                        },
+                        child: const Text(
+                          "Open Course",
+                          style: TextStyle(
+                              fontSize: 30,
+                              color: Color(0xFFFFFFFF),
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                       if (showLogInButton == true)
                         GestureDetector(
@@ -42,7 +52,7 @@ class AppBarLoggedOut extends PreferredSize {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const SignupPage()),
+                                  builder: (context) => const LoginPage()),
                             );
                           },
                           child: Container(

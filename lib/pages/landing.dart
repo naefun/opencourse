@@ -1,9 +1,8 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:open_course/navigation.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:open_course/pages/signup.dart';
 import 'package:open_course/widgets/app_bar_logged_out.dart';
 
 class LandingPage extends StatefulWidget {
@@ -19,7 +18,10 @@ class _LandingPageState extends State<LandingPage> {
     return Scaffold(
         extendBodyBehindAppBar: true,
         backgroundColor: const Color(0xff171717),
-        appBar: AppBarLoggedOut(child: Text("Test"), preferredSize: const Size.fromHeight(100),),
+        appBar: AppBarLoggedOut(
+          preferredSize: const Size.fromHeight(100),
+          child: const Text("Test"),
+        ),
         body: Stack(
           children: [
             Stack(
@@ -49,7 +51,7 @@ class _LandingPageState extends State<LandingPage> {
                 children: [
                   Center(
                     child: Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 30, 0, 30),
+                      padding: const EdgeInsets.fromLTRB(20, 30, 20, 30),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -98,12 +100,21 @@ class _LandingPageState extends State<LandingPage> {
                           const SizedBox(
                             height: 30,
                           ),
-                          Container(
-                            padding: const EdgeInsets.fromLTRB(45, 5, 45, 5),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(6),
-                                color: const Color(0xff49C29D)),
-                            child: const Text("Sign up"),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const SignupPage()),
+                              );
+                            },
+                            child: Container(
+                              padding: const EdgeInsets.fromLTRB(45, 5, 45, 5),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(6),
+                                  color: const Color(0xff49C29D)),
+                              child: const Text("Sign up"),
+                            ),
                           )
                         ],
                       ),
@@ -116,116 +127,3 @@ class _LandingPageState extends State<LandingPage> {
         ));
   }
 }
-
-// class LoggedOutAppBar extends PreferredSize {
-//   const LoggedOutAppBar({
-//     super.key, required super.child, required super.preferredSize,
-//   });
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return PreferredSize(
-//       preferredSize: super.preferredSize,
-//       child: ClipRect(
-//         child: BackdropFilter(
-//           filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-//           child: Column(
-//             mainAxisAlignment: MainAxisAlignment.end,
-//             children: [
-//               Container(
-//                 padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-//                 child: Center(
-//                   child: Row(
-//                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                     crossAxisAlignment: CrossAxisAlignment.end,
-//                     children: [
-//                       const Text(
-//                         "Open Course",
-//                         style: TextStyle(
-//                             fontSize: 30,
-//                             color: Color(0xFFFFFFFF),
-//                             fontWeight: FontWeight.bold),
-//                       ),
-//                       super.child
-//                     ],
-//                   ),
-//                 ),
-//               ),
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
-
-
-
-
-
-// return PreferredSize(
-//       preferredSize: const Size.fromHeight(100),
-//       child: ClipRect(
-//         child: BackdropFilter(
-//           filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-//           child: Column(
-//             mainAxisAlignment: MainAxisAlignment.end,
-//             children: [
-//               Container(
-//                 padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-//                 child: Center(
-//                   child: Row(
-//                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                     crossAxisAlignment: CrossAxisAlignment.end,
-//                     children: [
-//                       const Text(
-//                         "Open Course",
-//                         style: TextStyle(
-//                             fontSize: 30,
-//                             color: Color(0xFFFFFFFF),
-//                             fontWeight: FontWeight.bold),
-//                       ),
-//                       GestureDetector(
-//                         onTap: () {
-//                           Navigator.pushReplacement(
-//                             context,
-//                             MaterialPageRoute(
-//                                 builder: (context) => const Navigation()),
-//                           );
-//                         },
-//                         child: Container(
-//                           padding: const EdgeInsets.fromLTRB(30, 6, 30, 6),
-//                           decoration: BoxDecoration(
-//                               borderRadius: BorderRadius.circular(10),
-//                               border: Border.all(
-//                                   width: 2,
-//                                   color: const Color(0xff49C29D))),
-//                           child: Row(
-//                             children: const [
-//                               Icon(
-//                                 Icons.login,
-//                                 color: Color(0xff49C29D),
-//                               ),
-//                               SizedBox(
-//                                 width: 10,
-//                               ),
-//                               Text(
-//                                 "Log in",
-//                                 style: TextStyle(
-//                                     color: Color(0xff49C29D),
-//                                     fontWeight: FontWeight.bold,
-//                                     fontSize: 16),
-//                               )
-//                             ],
-//                           ),
-//                         ),
-//                       )
-//                     ],
-//                   ),
-//                 ),
-//               ),
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
