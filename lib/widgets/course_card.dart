@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:open_course/widgets/percent_progress_bar.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class CourseCard extends StatelessWidget {
@@ -90,18 +91,11 @@ class CourseCard extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          LinearPercentIndicator(
-            animation: true,
-            lineHeight: 8.0,
-            animationDuration: 1000,
-            percent: 0.8,
-            barRadius: const Radius.circular(50),
-            progressColor: const Color(0xff49C29D),
-            backgroundColor: const Color.fromRGBO(255, 255, 255, 0.2),
-            padding: const EdgeInsets.all(0),
-          ),
+          PercentProgressBar(percent: 0.8),
         ],
       ),
     );
   }
 }
+
+
