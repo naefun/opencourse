@@ -13,6 +13,7 @@ import 'package:open_course/widgets/app_bar_logged_out.dart';
 import 'package:open_course/widgets/form_button.dart';
 import 'package:open_course/widgets/google_text_button.dart';
 import 'package:open_course/widgets/or_divider.dart';
+import 'package:open_course/widgets/password_text_form_field.dart';
 import 'package:open_course/widgets/success_snackbar.dart';
 
 class LoginPage extends StatefulWidget {
@@ -98,18 +99,11 @@ class _LoginPageState extends State<LoginPage> {
                               const SizedBox(
                                 height: 10,
                               ),
-                              TextFormField(
+                              PasswordTextFormField(
                                   validator: (value) =>
                                       FormValidation.validateFieldNotEmpty(
-                                          value, "Please enter your password."),
-                                  controller: passwordController,
-                                  obscureText: true,
-                                  autocorrect: false,
-                                  style:
-                                      const TextStyle(color: Color(0xffffffff)),
-                                  expands: false,
-                                  decoration:
-                                      FormStyles.textFormFieldDecoration),
+                                          value,
+                                          "Please enter your password."), controller: passwordController,),
                               const SizedBox(
                                 height: 60,
                               ),
@@ -119,8 +113,6 @@ class _LoginPageState extends State<LoginPage> {
                                     await signIn(context, emailController.text,
                                         passwordController.text);
                                   }
-                                  log(emailController.text);
-                                  log(passwordController.text);
                                 },
                                 text: "Log in",
                               ),

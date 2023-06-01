@@ -10,6 +10,7 @@ import 'package:open_course/widgets/form_button.dart';
 import 'package:open_course/widgets/google_text_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:open_course/widgets/or_divider.dart';
+import 'package:open_course/widgets/password_text_form_field.dart';
 import 'package:open_course/widgets/success_snackbar.dart';
 
 class SignupPage extends StatefulWidget {
@@ -26,6 +27,7 @@ class _SignupPageState extends State<SignupPage> {
   TextEditingController usernameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  bool _passwordObscured = true;
 
   final GlobalKey<FormState> _registerFormKey = GlobalKey<FormState>();
 
@@ -202,18 +204,10 @@ class _SignupPageState extends State<SignupPage> {
                                         const SizedBox(
                                           height: 10,
                                         ),
-                                        TextFormField(
+                                        PasswordTextFormField(
                                             validator: (value) => FormValidation
                                                 .validateRegistrationPassword(
-                                                    value),
-                                            controller: passwordController,
-                                            obscureText: true,
-                                            autocorrect: false,
-                                            style: const TextStyle(
-                                                color: Color(0xffffffff)),
-                                            expands: false,
-                                            decoration: FormStyles
-                                                .textFormFieldDecoration),
+                                                    value), controller: passwordController,),
                                         const SizedBox(
                                           height: 60,
                                         ),
