@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:open_course/pages/courses.dart';
 import 'package:open_course/pages/home.dart';
@@ -41,15 +42,21 @@ class _NavigationState extends State<Navigation> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.end,
-                children: const [
-                  Text(
+                children: [
+                  const Text(
                     "Dashboard",
                     style: TextStyle(
                         fontSize: 30,
                         color: Color(0xFFFFFFFF),
                         fontWeight: FontWeight.bold),
                   ),
-                  CreateCourseButton()
+                  Text(
+                    "Welcome ${FirebaseAuth.instance.currentUser != null && FirebaseAuth.instance.currentUser!.displayName != null ? FirebaseAuth.instance.currentUser!.displayName : 'user'}",
+                    style: const TextStyle(
+                        fontSize: 16,
+                        color: Color(0xFFFFFFFF)),
+                  ),
+                  const CreateCourseButton()
                 ],
               ),
             ),
