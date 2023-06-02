@@ -182,32 +182,21 @@ class _SignupPageState extends State<SignupPage> {
                                         const SizedBox(
                                           height: 40,
                                         ),
-                                        const Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Text(
-                                              "Password",
-                                              style: TextStyle(
-                                                  color: Color(0xffffffff),
-                                                  fontSize: 12),
-                                            ),
-                                            Text(
-                                              "Forgot password?",
-                                              style: TextStyle(
-                                                  color: Color.fromRGBO(
-                                                      73, 194, 157, .5),
-                                                  fontSize: 12),
-                                            ),
-                                          ],
+                                        const Text(
+                                          "Password",
+                                          style: TextStyle(
+                                              color: Color(0xffffffff),
+                                              fontSize: 12),
                                         ),
                                         const SizedBox(
                                           height: 10,
                                         ),
                                         PasswordTextFormField(
-                                            validator: (value) => FormValidation
-                                                .validateRegistrationPassword(
-                                                    value), controller: passwordController,),
+                                          validator: (value) => FormValidation
+                                              .validateRegistrationPassword(
+                                                  value),
+                                          controller: passwordController,
+                                        ),
                                         const SizedBox(
                                           height: 60,
                                         ),
