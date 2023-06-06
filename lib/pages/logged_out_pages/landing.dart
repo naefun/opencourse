@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:open_course/pages/signup.dart';
+import 'package:open_course/pages/logged_out_pages/signup.dart';
 import 'package:open_course/widgets/app_bar_logged_out.dart';
 
 class LandingPage extends StatefulWidget {

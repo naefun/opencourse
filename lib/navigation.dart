@@ -4,6 +4,7 @@ import 'package:open_course/pages/courses.dart';
 import 'package:open_course/pages/home.dart';
 import 'package:open_course/pages/profile.dart';
 import 'package:open_course/pages/settings.dart';
+import 'package:open_course/widgets/app_bar_logged_in.dart';
 import 'package:open_course/widgets/create_course_button.dart';
 
 class Navigation extends StatefulWidget {
@@ -21,6 +22,12 @@ class _NavigationState extends State<Navigation> {
     Profile(),
     Settings(),
   ];
+  static const List<String> _pageHeaders = <String>[
+    "Dashboard",
+    "Courses",
+    "Profile",
+    "Settings",
+  ];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -32,36 +39,7 @@ class _NavigationState extends State<Navigation> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: const Color(0xff171717),
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: const Color(0xff171717),
-          toolbarHeight: 100,
-          flexibleSpace: Container(
-            padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-            child: Center(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  const Text(
-                    "Dashboard",
-                    style: TextStyle(
-                        fontSize: 30,
-                        color: Color(0xFFFFFFFF),
-                        fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    "Welcome ${FirebaseAuth.instance.currentUser != null && FirebaseAuth.instance.currentUser!.displayName != null ? FirebaseAuth.instance.currentUser!.displayName : 'user'}",
-                    style: const TextStyle(
-                        fontSize: 16,
-                        color: Color(0xFFFFFFFF)),
-                  ),
-                  const CreateCourseButton()
-                ],
-              ),
-            ),
-          ),
-        ),
+        appBar: AppBarLoggedIn(heading: _pageHeaders[_selectedIndex],),
         body: _pages[_selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
           elevation: 8,

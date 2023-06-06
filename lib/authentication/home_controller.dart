@@ -6,7 +6,7 @@ import 'package:open_course/authentication/auth_provider.dart';
 import 'package:open_course/authentication/auth_service.dart';
 import 'package:open_course/navigation.dart';
 import 'package:open_course/navigators/navigator_handler.dart';
-import 'package:open_course/pages/landing.dart';
+import 'package:open_course/pages/logged_out_pages/landing.dart';
 import 'package:open_course/widgets/success_snackbar.dart';
 
 class HomeController extends StatelessWidget {

@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:open_course/authentication/auth_methods.dart';
 import 'package:open_course/navigators/navigator_handler.dart';
-import 'package:open_course/pages/landing.dart';
+import 'package:open_course/pages/logged_out_pages/landing.dart';
 
 class Settings extends StatefulWidget {
   const Settings({Key? key}) : super(key: key);
@@ -16,8 +16,21 @@ class _SettingsState extends State<Settings> {
   Widget build(BuildContext context) {
     return Container(
       child: Center(
-        child:
-            ElevatedButton(onPressed: () => signOut(), child: Text("Sign out")),
+        child: Column(
+          children: [
+            Text(
+              "Welcome ${FirebaseAuth.instance.currentUser != null && FirebaseAuth.instance.currentUser!.displayName != null ? FirebaseAuth.instance.currentUser!.displayName : 'user'}",
+              style: TextStyle(color: Color(0xffffffff), fontSize: 20),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+              onPressed: () => signOut(),
+              child: Text("Sign out"),
+            ),
+          ],
+        ),
       ),
     );
   }

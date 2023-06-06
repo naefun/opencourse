@@ -1,8 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:open_course/pages/landing.dart';
-import 'package:open_course/pages/login.dart';
+import 'package:open_course/pages/logged_out_pages/landing.dart';
+import 'package:open_course/pages/logged_out_pages/login.dart';
 
 class AppBarLoggedOut extends PreferredSize {
   AppBarLoggedOut(

@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:open_course/authentication/auth_methods.dart';
-import 'package:open_course/pages/login.dart';
+import 'package:open_course/pages/logged_out_pages/login.dart';
 import 'package:open_course/styles/form_styles.dart';
 import 'package:open_course/validation/form_validation.dart';
 import 'package:open_course/widgets/app_bar_logged_out.dart';
@@ -27,7 +27,6 @@ class _SignupPageState extends State<SignupPage> {
   TextEditingController usernameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  bool _passwordObscured = true;
 
   final GlobalKey<FormState> _registerFormKey = GlobalKey<FormState>();
 

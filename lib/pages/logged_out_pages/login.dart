@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:open_course/authentication/auth_methods.dart';
 import 'package:open_course/navigation.dart';
 import 'package:open_course/navigators/navigator_handler.dart';
-import 'package:open_course/pages/signup.dart';
+import 'package:open_course/pages/logged_out_pages/signup.dart';
 import 'package:open_course/styles/form_styles.dart';
 import 'package:open_course/validation/form_validation.dart';
 import 'package:open_course/widgets/app_bar_logged_out.dart';
