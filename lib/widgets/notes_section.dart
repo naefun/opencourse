@@ -1,4 +1,8 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:open_course/models/lesson_note.dart';
+import 'package:open_course/widgets/notes_tab.dart';
 
 class NotesSection extends StatefulWidget {
   const NotesSection({super.key});
@@ -8,12 +12,9 @@ class NotesSection extends StatefulWidget {
 }
 
 class _NotesSectionState extends State<NotesSection> {
-  List<Widget> notes = [
-    NotesTab(
-      active: true,
-      showLeftBorder: false,
-    ),
-    NotesTab(),
+  int selectedTab = 0;
+
+  List<LessonNote> notes = [
   ];
 
   @override
@@ -25,7 +26,7 @@ class _NotesSectionState extends State<NotesSection> {
           crossAxisAlignment: CrossAxisAlignment.end,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Expanded(
+            Flexible(
               child: SizedBox(
                 height: 40,
                 child: Container(
@@ -34,22 +35,26 @@ class _NotesSectionState extends State<NotesSection> {
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(8),
                           topRight: Radius.circular(8))),
-                  child: ListView(
+                  child: ListView.builder(
+                    itemCount: notes.length > 0 ? notes.length : 1,
                     physics: ClampingScrollPhysics(),
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
-                    children: [
-                      Container(
-                        clipBehavior: Clip.antiAlias,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(8),
-                                topRight: Radius.circular(8))),
-                        child: Row(
-                          children: notes,
-                        ),
-                      )
-                    ],
+                    itemBuilder: (context, index) {
+                      if(notes.length==0){
+                        notes.add(LessonNote("First note", "content"));
+                      }
+                      bool activeTab = false;
+                      bool showBorder = false;
+                      String title = notes[index].getTitle();
+                      if(selectedTab == index){
+                        activeTab = true;
+                      }
+                      if(index!=0){
+                        showBorder = true;
+                      }
+                      return NotesTab(active: activeTab, showLeftBorder: showBorder, title: title,);
+                    },
                   ),
                 ),
               ),
@@ -111,40 +116,10 @@ class _NotesSectionState extends State<NotesSection> {
   }
 
   void addNote() {
-    List<Widget> _notes = List.from(notes);
-    _notes.add(NotesTab());
+    List<LessonNote> _notes = List.from(notes);
+    _notes.add(LessonNote("New note", ""));
     setState(() {
       notes = _notes;
     });
-  }
-}
-
-class NotesTab extends StatelessWidget {
-  NotesTab({super.key, this.active = false, this.showLeftBorder = true});
-
-  bool active;
-  bool showLeftBorder;
-
-  @override
-  Widget build(BuildContext context) {
-    Color bgColour = active ? Color(0xffF3F3F3) : Color(0xffB5B5B5);
-
-    return Container(
-      padding: EdgeInsets.fromLTRB(15, 10, 15, 10),
-      decoration: BoxDecoration(
-        border: Border(
-          left: BorderSide(
-              color: Color.fromRGBO(0, 0, 0, .1),
-              width: showLeftBorder ? 1 : 0),
-        ),
-        color: bgColour,
-      ),
-      child: Center(
-        child: Text(
-          "Some note",
-          style: TextStyle(color: Color.fromRGBO(0, 0, 0, .6)),
-        ),
-      ),
-    );
   }
 }
