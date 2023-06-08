@@ -12,13 +12,20 @@ class NotesSection extends StatefulWidget {
 }
 
 class _NotesSectionState extends State<NotesSection> {
-  int selectedTab = 0;
+  String initialNoteContent = "Write your first note";
+  int activeNoteIndex = 0;
+  TextEditingController noteController = TextEditingController();
 
-  List<LessonNote> notes = [
-  ];
+  List<LessonNote> notes = [];
 
   @override
   Widget build(BuildContext context) {
+    if (notes.length != 0) {
+      noteController.text = notes[activeNoteIndex].getContent();
+    } else {
+      noteController.text = initialNoteContent;
+    }
+
     return Column(
       children: [
         Row(
@@ -41,19 +48,41 @@ class _NotesSectionState extends State<NotesSection> {
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
-                      if(notes.length==0){
-                        notes.add(LessonNote("First note", "content"));
+                      if (notes.length == 0) {
+                        notes.add(LessonNote("First note", initialNoteContent));
                       }
+                      GlobalKey dataKey = GlobalKey();
                       bool activeTab = false;
                       bool showBorder = false;
                       String title = notes[index].getTitle();
-                      if(selectedTab == index){
+                      if (activeNoteIndex == index) {
                         activeTab = true;
                       }
-                      if(index!=0){
+                      if (index != 0) {
                         showBorder = true;
                       }
-                      return NotesTab(active: activeTab, showLeftBorder: showBorder, title: title,);
+                      return GestureDetector(
+                          key: dataKey,
+                          onTap: () {
+                            Scrollable.ensureVisible(
+                              dataKey.currentContext!,
+                              alignmentPolicy: index > activeNoteIndex
+                                  ? ScrollPositionAlignmentPolicy
+                                      .keepVisibleAtEnd
+                                  : ScrollPositionAlignmentPolicy
+                                      .keepVisibleAtStart,
+                              duration: const Duration(milliseconds: 300),
+                              curve: Curves.easeInOut,
+                            );
+                            setState(() {
+                              activeNoteIndex = index;
+                            });
+                          },
+                          child: NotesTab(
+                            active: activeTab,
+                            showLeftBorder: showBorder,
+                            title: title,
+                          ));
                     },
                   ),
                 ),
@@ -109,6 +138,8 @@ class _NotesSectionState extends State<NotesSection> {
                     bottomRight: Radius.circular(20)),
                 color: Color(0xffF3F3F3)),
             child: TextField(
+                onChanged: (input) => {updateNoteContent(input)},
+                controller: noteController,
                 maxLines: 14,
                 decoration: InputDecoration(border: InputBorder.none))),
       ],
@@ -121,5 +152,13 @@ class _NotesSectionState extends State<NotesSection> {
     setState(() {
       notes = _notes;
     });
+  }
+
+  void updateNoteContent(String input) {
+    String _content = notes[activeNoteIndex].getContent();
+    _content = input;
+    LessonNote _note = notes[activeNoteIndex];
+    _note.setContent(_content);
+    notes[activeNoteIndex] = _note;
   }
 }

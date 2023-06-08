@@ -14,4 +14,8 @@ class LessonNote {
   String getContent(){
     return _content;
   }
+
+  void setContent(String content) {
+    _content = content;
+  }
 }
