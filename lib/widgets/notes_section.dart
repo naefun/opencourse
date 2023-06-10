@@ -48,41 +48,7 @@ class _NotesSectionState extends State<NotesSection> {
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
-                      if (notes.length == 0) {
-                        notes.add(LessonNote("First note", initialNoteContent));
-                      }
-                      GlobalKey dataKey = GlobalKey();
-                      bool activeTab = false;
-                      bool showBorder = false;
-                      String title = notes[index].getTitle();
-                      if (activeNoteIndex == index) {
-                        activeTab = true;
-                      }
-                      if (index != 0) {
-                        showBorder = true;
-                      }
-                      return GestureDetector(
-                          key: dataKey,
-                          onTap: () {
-                            Scrollable.ensureVisible(
-                              dataKey.currentContext!,
-                              alignmentPolicy: index > activeNoteIndex
-                                  ? ScrollPositionAlignmentPolicy
-                                      .keepVisibleAtEnd
-                                  : ScrollPositionAlignmentPolicy
-                                      .keepVisibleAtStart,
-                              duration: const Duration(milliseconds: 300),
-                              curve: Curves.easeInOut,
-                            );
-                            setState(() {
-                              activeNoteIndex = index;
-                            });
-                          },
-                          child: NotesTab(
-                            active: activeTab,
-                            showLeftBorder: showBorder,
-                            title: title,
-                          ));
+                      return buildNoteTab(context, index);
                     },
                   ),
                 ),
@@ -160,5 +126,50 @@ class _NotesSectionState extends State<NotesSection> {
     LessonNote _note = notes[activeNoteIndex];
     _note.setContent(_content);
     notes[activeNoteIndex] = _note;
+  }
+
+  void tabOnTap(GlobalKey dataKey, int index) {
+    Scrollable.ensureVisible(
+      dataKey.currentContext!,
+      alignmentPolicy: ScrollPositionAlignmentPolicy.keepVisibleAtEnd,
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeInOut,
+    );
+    Scrollable.ensureVisible(
+      dataKey.currentContext!,
+      alignmentPolicy: ScrollPositionAlignmentPolicy.keepVisibleAtStart,
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeInOut,
+    );
+    setState(() {
+      activeNoteIndex = index;
+    });
+  }
+
+  Widget buildNoteTab(BuildContext context, int index) {
+    if (notes.isEmpty) {
+      notes.add(LessonNote("First note", initialNoteContent));
+    }
+    GlobalKey dataKey = GlobalKey();
+    bool activeTab = false;
+    bool showBorder = false;
+    String title = notes[index].getTitle();
+    if (activeNoteIndex == index) {
+      activeTab = true;
+    }
+    if (index != 0) {
+      showBorder = true;
+    }
+    return GestureDetector(
+      key: dataKey,
+      onTap: () {
+        tabOnTap(dataKey, index);
+      },
+      child: NotesTab(
+        active: activeTab,
+        showLeftBorder: showBorder,
+        title: title,
+      ),
+    );
   }
 }
