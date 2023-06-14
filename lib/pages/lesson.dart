@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_layout_grid/flutter_layout_grid.dart';
@@ -8,6 +9,7 @@ import 'package:open_course/widgets/lesson_dropdown_selector.dart';
 import 'package:open_course/widgets/notes_section.dart';
 import 'package:open_course/widgets/page_scaffold.dart';
 import 'package:open_course/widgets/percent_progress_bar.dart';
+import 'package:open_course/widgets/video_player/video_player.dart';
 
 class LessonPage extends StatefulWidget {
   const LessonPage({Key? key}) : super(key: key);
@@ -36,11 +38,9 @@ class _LessonPageState extends State<LessonPage> {
                 color: Color.fromRGBO(255, 255, 255, .8), fontSize: 18),
           ),
         ),
-        AspectRatio(
-          aspectRatio: 16 / 9,
-          child: Container(
-            color: const Color.fromARGB(255, 0, 0, 0),
-          ),
+        VideoPlayer(),
+        SizedBox(
+          height: 20,
         ),
         Padding(
           padding: const EdgeInsets.only(left: 20, right: 20),
