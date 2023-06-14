@@ -1,14 +1,7 @@
-import 'dart:developer';
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_layout_grid/flutter_layout_grid.dart';
-import 'package:open_course/widgets/course_card_large.dart';
-import 'package:open_course/widgets/create_course_form.dart';
+import 'package:open_course/widgets/lesson_actions.dart';
 import 'package:open_course/widgets/lesson_dropdown_selector.dart';
-import 'package:open_course/widgets/notes_section.dart';
 import 'package:open_course/widgets/page_scaffold.dart';
-import 'package:open_course/widgets/percent_progress_bar.dart';
 import 'package:open_course/widgets/video_player/video_player.dart';
 
 class LessonPage extends StatefulWidget {
@@ -29,7 +22,7 @@ class _LessonPageState extends State<LessonPage> {
       appBarSubheading: "1 / 12",
       includeAppBarButton: false,
       horizontalPadding: 0,
-      children: [
+      children: const [
         Padding(
           padding: EdgeInsets.only(left: 20, right: 20, bottom: 10),
           child: Text(
@@ -43,104 +36,13 @@ class _LessonPageState extends State<LessonPage> {
           height: 20,
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 20, right: 20),
+          padding: EdgeInsets.only(left: 20, right: 20),
           child: Column(
             children: [
-              const SizedBox(
+              SizedBox(
                 height: 20,
               ),
-              Center(
-                child: Container(
-                  decoration: BoxDecoration(
-                      color: const Color(0xff111111),
-                      borderRadius: BorderRadius.circular(16)),
-                  padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      GestureDetector(
-                        onTap: () => {},
-                        child: Container(
-                          padding: EdgeInsets.all(5),
-                          child: const Icon(
-                            Icons.edit_outlined,
-                            color: Color(0xffffffff),
-                            size: 30,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        height: 20,
-                        child: const VerticalDivider(
-                          thickness: 1,
-                          width: 40,
-                          color: Color.fromRGBO(255, 255, 255, .2),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () => setState(() {
-                          showNotes = !showNotes;
-                        }),
-                        child: Container(
-                          padding: EdgeInsets.all(5),
-                          decoration: BoxDecoration(
-                              color: Color.fromRGBO(
-                                  255, 255, 255, showNotes ? .2 : 0),
-                              borderRadius: BorderRadius.circular(6)),
-                          child: const Icon(
-                            Icons.note_alt_outlined,
-                            color: Color(0xffffffff),
-                            size: 30,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        height: 20,
-                        child: const VerticalDivider(
-                          thickness: 1,
-                          width: 40,
-                          color: Color.fromRGBO(255, 255, 255, .2),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () => {},
-                        child: Container(
-                          padding: EdgeInsets.all(5),
-                          child: const Icon(
-                            Icons.arrow_back,
-                            color: Color(0xffffffff),
-                            size: 30,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        height: 20,
-                        child: const VerticalDivider(
-                          thickness: 1,
-                          width: 40,
-                          color: Color.fromRGBO(255, 255, 255, .2),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () => {},
-                        child: Container(
-                          padding: EdgeInsets.all(5),
-                          child: const Icon(
-                            Icons.arrow_forward,
-                            color: Color(0xffffffff),
-                            size: 30,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              if (showNotes)
-                Padding(
-                  padding: EdgeInsets.only(top: 30),
-                  child: NotesSection(),
-                ),
+              LessonActions(),
               SizedBox(
                 height: 30,
               ),

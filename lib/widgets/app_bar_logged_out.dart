@@ -61,8 +61,8 @@ class AppBarLoggedOut extends PreferredSize {
                                 borderRadius: BorderRadius.circular(10),
                                 border: Border.all(
                                     width: 2, color: const Color(0xff49C29D))),
-                            child: Row(
-                              children: const [
+                            child: const Row(
+                              children: [
                                 Icon(
                                   Icons.login,
                                   color: Color(0xff49C29D),

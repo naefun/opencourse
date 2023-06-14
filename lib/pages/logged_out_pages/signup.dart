@@ -8,7 +8,6 @@ import 'package:open_course/validation/form_validation.dart';
 import 'package:open_course/widgets/app_bar_logged_out.dart';
 import 'package:open_course/widgets/form_button.dart';
 import 'package:open_course/widgets/google_text_button.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:open_course/widgets/or_divider.dart';
 import 'package:open_course/widgets/password_text_form_field.dart';
 import 'package:open_course/widgets/success_snackbar.dart';

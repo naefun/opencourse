@@ -18,13 +18,13 @@ class YoutubeJumpButton extends StatelessWidget {
       builder: (context, value) {
         return Container(
           decoration: BoxDecoration(
-            color: Color(0xff111111),
+            color: const Color(0xff111111),
             borderRadius: BorderRadius.circular(100),
           ),
           child: IconButton(
             icon: Icon(
               buttonIcon(),
-              color: Color(0xffffffff),
+              color: const Color(0xffffffff),
             ),
             onPressed: () {
               buttonAction(value);

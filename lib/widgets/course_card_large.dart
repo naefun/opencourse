@@ -11,26 +11,27 @@ class CourseCardLarge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTextStyle(
-      style: TextStyle(color: Color.fromRGBO(255, 255, 255, 0.6)),
+      style: const TextStyle(color: Color.fromRGBO(255, 255, 255, 0.6)),
       child: GestureDetector(
         onTap: () => NavigatorHandler.pushLessonPage(context),
         child: Container(
-          margin: EdgeInsets.fromLTRB(0, 0, 0, 20),
+          margin: const EdgeInsets.fromLTRB(0, 0, 0, 20),
           decoration: BoxDecoration(
-              color: Color(0xff111111), borderRadius: BorderRadius.circular(22)),
-          padding: EdgeInsets.all(20),
+              color: const Color(0xff111111),
+              borderRadius: BorderRadius.circular(22)),
+          padding: const EdgeInsets.all(20),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 "Course title",
                 style: TextStyle(
                     color: Color(0xffffffff),
                     fontWeight: FontWeight.bold,
                     fontSize: 20),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
               LayoutGrid(
@@ -42,7 +43,7 @@ class CourseCardLarge extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Wrap(
+                      const Wrap(
                         runSpacing: 10,
                         spacing: 30,
                         children: [
@@ -108,10 +109,10 @@ class CourseCardLarge extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
-                      Row(
+                      const Row(
                         children: [
                           Text("Lessons completed: "),
                           Text(
@@ -122,7 +123,7 @@ class CourseCardLarge extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       PercentProgressBar(percent: 0.8)
@@ -134,39 +135,39 @@ class CourseCardLarge extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         Container(
-                          padding: EdgeInsets.fromLTRB(14, 1, 14, 1),
+                          padding: const EdgeInsets.fromLTRB(14, 1, 14, 1),
                           decoration: BoxDecoration(
-                              color: Color(0xffFCAFAF),
+                              color: const Color(0xffFCAFAF),
                               borderRadius: BorderRadius.circular(3)),
-                          child: Text(
+                          child: const Text(
                             "Web",
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(color: Color(0xff000000)),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 5,
                         ),
                         Container(
-                          padding: EdgeInsets.fromLTRB(14, 1, 14, 1),
+                          padding: const EdgeInsets.fromLTRB(14, 1, 14, 1),
                           decoration: BoxDecoration(
-                              color: Color(0xffE8FACC),
+                              color: const Color(0xffE8FACC),
                               borderRadius: BorderRadius.circular(3)),
-                          child: Text(
+                          child: const Text(
                             "Front-End",
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(color: Color(0xff000000)),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 5,
                         ),
                         Container(
-                          padding: EdgeInsets.fromLTRB(14, 1, 14, 1),
+                          padding: const EdgeInsets.fromLTRB(14, 1, 14, 1),
                           decoration: BoxDecoration(
-                              color: Color(0xffCFFFF9),
+                              color: const Color(0xffCFFFF9),
                               borderRadius: BorderRadius.circular(3)),
-                          child: Text(
+                          child: const Text(
                             "JavaScript",
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(color: Color(0xff000000)),

@@ -1,11 +1,5 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_layout_grid/flutter_layout_grid.dart';
 import 'package:open_course/widgets/app_bar_logged_in.dart';
-import 'package:open_course/widgets/course_card_large.dart';
-import 'package:open_course/widgets/create_course_form.dart';
-import 'package:open_course/widgets/percent_progress_bar.dart';
 
 class PageScaffold extends StatefulWidget {
   PageScaffold({
@@ -42,7 +36,7 @@ class _PageScaffoldState extends State<PageScaffold> {
               showCreateCourseButton: widget.includeAppBarButton,
             )
           : null,
-      backgroundColor: Color(0xff171717),
+      backgroundColor: const Color(0xff171717),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.fromLTRB(

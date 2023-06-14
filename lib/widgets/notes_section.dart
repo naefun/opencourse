@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:open_course/models/lesson_note.dart';
 import 'package:open_course/widgets/notes_tab.dart';
@@ -20,7 +18,7 @@ class _NotesSectionState extends State<NotesSection> {
 
   @override
   Widget build(BuildContext context) {
-    if (notes.length != 0) {
+    if (notes.isNotEmpty) {
       noteController.text = notes[activeNoteIndex].getContent();
     } else {
       noteController.text = initialNoteContent;
@@ -38,13 +36,13 @@ class _NotesSectionState extends State<NotesSection> {
                 height: 40,
                 child: Container(
                   clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(8),
                           topRight: Radius.circular(8))),
                   child: ListView.builder(
-                    itemCount: notes.length > 0 ? notes.length : 1,
-                    physics: ClampingScrollPhysics(),
+                    itemCount: notes.isNotEmpty ? notes.length : 1,
+                    physics: const ClampingScrollPhysics(),
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
@@ -54,7 +52,7 @@ class _NotesSectionState extends State<NotesSection> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 10,
             ),
             Row(
@@ -63,14 +61,14 @@ class _NotesSectionState extends State<NotesSection> {
                 GestureDetector(
                   onTap: () => addNote(),
                   child: Container(
-                    padding: EdgeInsets.fromLTRB(15, 6, 15, 6),
-                    decoration: BoxDecoration(
+                    padding: const EdgeInsets.fromLTRB(15, 6, 15, 6),
+                    decoration: const BoxDecoration(
                       color: Color.fromARGB(131, 73, 194, 158),
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(8),
                           topRight: Radius.circular(8)),
                     ),
-                    child: Icon(
+                    child: const Icon(
                       Icons.note_add_outlined,
                       size: 20,
                       color: Color(0xffffffff),
@@ -78,14 +76,14 @@ class _NotesSectionState extends State<NotesSection> {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.fromLTRB(15, 6, 15, 6),
-                  decoration: BoxDecoration(
+                  padding: const EdgeInsets.fromLTRB(15, 6, 15, 6),
+                  decoration: const BoxDecoration(
                     color: Color(0xff49C29D),
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(8),
                         topRight: Radius.circular(8)),
                   ),
-                  child: Icon(
+                  child: const Icon(
                     Icons.save_outlined,
                     size: 20,
                     color: Color(0xffffffff),
@@ -96,9 +94,9 @@ class _NotesSectionState extends State<NotesSection> {
           ],
         ),
         Container(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             width: double.infinity,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(20),
                     bottomRight: Radius.circular(20)),
@@ -107,7 +105,7 @@ class _NotesSectionState extends State<NotesSection> {
                 onChanged: (input) => {updateNoteContent(input)},
                 controller: noteController,
                 maxLines: 14,
-                decoration: InputDecoration(border: InputBorder.none))),
+                decoration: const InputDecoration(border: InputBorder.none))),
       ],
     );
   }

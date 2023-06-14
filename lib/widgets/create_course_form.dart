@@ -60,8 +60,8 @@ class CreateCourseForm extends StatelessWidget {
             height: 20,
           ),
           // course title input
-          Row(
-            children: const [
+          const Row(
+            children: [
               Text(
                 "Course title",
                 style: TextStyle(color: Color(0xffffffff)),

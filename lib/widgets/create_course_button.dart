@@ -40,13 +40,11 @@ class _CreateCourseButtonState extends State<CreateCourseButton> {
           body: SafeArea(
             child: BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-              child: Container(
-                child: Align(
-                    alignment: Alignment.center,
-                    child: CreateCourseForm(
-                      function: (value) => cancelFunction(value),
-                    )),
-              ),
+              child: Align(
+                  alignment: Alignment.center,
+                  child: CreateCourseForm(
+                    function: (value) => cancelFunction(value),
+                  )),
             ),
           ),
         );

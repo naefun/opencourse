@@ -33,7 +33,7 @@ class YoutubeVideoPositionSeeker extends StatelessWidget {
                   Text(
                     "${positionMins.toString().padLeft(1, '0')}:${(position % 60).toString().padLeft(2, '0')}",
                     style: GoogleFonts.azeretMono(
-                      textStyle: TextStyle(
+                      textStyle: const TextStyle(
                         color: Color.fromARGB(166, 255, 255, 255),
                       ),
                     ),
@@ -41,8 +41,8 @@ class YoutubeVideoPositionSeeker extends StatelessWidget {
                   Expanded(
                     child: Slider(
                       label: "Time",
-                      activeColor: Color(0xff49C29D),
-                      inactiveColor: Color.fromRGBO(255, 255, 255, 0.2),
+                      activeColor: const Color(0xff49C29D),
+                      inactiveColor: const Color.fromRGBO(255, 255, 255, 0.2),
                       value: value,
                       onChanged: (positionFraction) {
                         value = positionFraction;
@@ -59,7 +59,7 @@ class YoutubeVideoPositionSeeker extends StatelessWidget {
                   Text(
                     "${durationMins.toString().padLeft(1, '0')}:${durationSecs.toString().padLeft(2, '0')}",
                     style: GoogleFonts.azeretMono(
-                      textStyle: TextStyle(
+                      textStyle: const TextStyle(
                         color: Color.fromARGB(166, 255, 255, 255),
                       ),
                     ),

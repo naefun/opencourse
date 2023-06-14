@@ -36,8 +36,8 @@ class ResumeCourseCard extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  Row(
-                    children: const [
+                  const Row(
+                    children: [
                       Text(
                         "Lessons completed: ",
                         style: TextStyle(
@@ -55,17 +55,15 @@ class ResumeCourseCard extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-                  Container(
-                    child: LinearPercentIndicator(
-                      animation: true,
-                      lineHeight: 8.0,
-                      animationDuration: 1000,
-                      percent: 0.8,
-                      barRadius: const Radius.circular(50),
-                      progressColor: const Color(0xff49C29D),
-                      backgroundColor: const Color.fromRGBO(255, 255, 255, 0.2),
-                      padding: const EdgeInsets.all(0),
-                    ),
+                  LinearPercentIndicator(
+                    animation: true,
+                    lineHeight: 8.0,
+                    animationDuration: 1000,
+                    percent: 0.8,
+                    barRadius: const Radius.circular(50),
+                    progressColor: const Color(0xff49C29D),
+                    backgroundColor: const Color.fromRGBO(255, 255, 255, 0.2),
+                    padding: const EdgeInsets.all(0),
                   ),
                 ],
               ),

@@ -1,6 +1,3 @@
-import 'dart:developer';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:open_course/widgets/video_player/youtube_jump_button.dart';
 import 'package:open_course/widgets/video_player/youtube_play_pause_button.dart';
@@ -73,7 +70,7 @@ class _VideoPlayerState extends State<VideoPlayer> {
             );
           },
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Flex(
@@ -84,11 +81,11 @@ class _VideoPlayerState extends State<VideoPlayer> {
               controller: _controller,
               jumpForward: false,
             ),
-            SizedBox(
+            const SizedBox(
               width: 10,
             ),
             YoutubePlayPauseButton(controller: _controller),
-            SizedBox(
+            const SizedBox(
               width: 10,
             ),
             YoutubeJumpButton(controller: _controller),

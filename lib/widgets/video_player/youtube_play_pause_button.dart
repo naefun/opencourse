@@ -16,7 +16,7 @@ class YoutubePlayPauseButton extends StatelessWidget {
       builder: (context, value) {
         return Container(
           decoration: BoxDecoration(
-            color: Color(0xff111111),
+            color: const Color(0xff111111),
             borderRadius: BorderRadius.circular(100),
           ),
           child: IconButton(
@@ -24,7 +24,7 @@ class YoutubePlayPauseButton extends StatelessWidget {
               value.playerState == PlayerState.playing
                   ? Icons.pause
                   : Icons.play_arrow,
-              color: Color(0xffffffff),
+              color: const Color(0xffffffff),
             ),
             onPressed: () {
               value.playerState == PlayerState.playing

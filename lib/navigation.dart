@@ -1,11 +1,9 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:open_course/pages/courses.dart';
 import 'package:open_course/pages/home.dart';
 import 'package:open_course/pages/profile.dart';
 import 'package:open_course/pages/settings.dart';
 import 'package:open_course/widgets/app_bar_logged_in.dart';
-import 'package:open_course/widgets/create_course_button.dart';
 
 class Navigation extends StatefulWidget {
   const Navigation({Key? key}) : super(key: key);
@@ -39,7 +37,9 @@ class _NavigationState extends State<Navigation> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: const Color(0xff171717),
-        appBar: AppBarLoggedIn(heading: _pageHeaders[_selectedIndex],),
+        appBar: AppBarLoggedIn(
+          heading: _pageHeaders[_selectedIndex],
+        ),
         body: _pages[_selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
           elevation: 8,

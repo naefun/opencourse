@@ -44,7 +44,7 @@ class _PasswordTextFormFieldState extends State<PasswordTextFormField> {
               _passwordObscured
                   ? Icons.visibility_off_outlined
                   : Icons.visibility_outlined,
-              color: Color.fromRGBO(255, 255, 255, 0.5),
+              color: const Color.fromRGBO(255, 255, 255, 0.5),
             ),
             onPressed: () {
               setState(() {

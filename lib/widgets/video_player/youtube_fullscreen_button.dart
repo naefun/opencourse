@@ -16,11 +16,11 @@ class YoutubeFullscreenButton extends StatelessWidget {
       builder: (context, value) {
         return Container(
           decoration: BoxDecoration(
-            color: Color(0xffFF0000),
+            color: const Color(0xffFF0000),
             borderRadius: BorderRadius.circular(100),
           ),
           child: IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.fullscreen,
               color: Color(0xffffffff),
             ),

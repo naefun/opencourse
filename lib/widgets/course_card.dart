@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:open_course/widgets/percent_progress_bar.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class CourseCard extends StatelessWidget {
   const CourseCard({
@@ -28,12 +27,12 @@ class CourseCard extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
+                children: [
                   Text(
                     "Lessons:",
                     style: TextStyle(
@@ -51,7 +50,7 @@ class CourseCard extends StatelessWidget {
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
+                children: [
                   Text(
                     "Notes:",
                     style: TextStyle(
@@ -97,5 +96,3 @@ class CourseCard extends StatelessWidget {
     );
   }
 }
-
-
