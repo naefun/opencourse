@@ -47,6 +47,8 @@ class _LessonPageState extends State<LessonPage> {
                 height: 30,
               ),
               LessonDropdownSelector(),
+              LessonDropdownSelector(),
+              LessonDropdownSelector(),
             ],
           ),
         ),
