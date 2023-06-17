@@ -17,7 +17,7 @@ class _CreateCourseButtonState extends State<CreateCourseButton> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: const Color(0xff1F6DEE),
+          color: const Color(0xff49C29D),
           borderRadius: BorderRadius.circular(10)),
       child: IconButton(
         onPressed: () => showCreateCourseOverlay(),
