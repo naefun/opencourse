@@ -15,10 +15,10 @@ class Navigation extends StatefulWidget {
 class _NavigationState extends State<Navigation> {
   int _selectedIndex = 0;
   static const List<Widget> _pages = <Widget>[
-    Home(),
-    Courses(),
-    Profile(),
-    Settings(),
+    HomePage(),
+    CoursesPage(),
+    ProfilePage(),
+    SettingsPage(),
   ];
   static const List<String> _pageHeaders = <String>[
     "Dashboard",
