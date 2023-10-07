@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_layout_grid/flutter_layout_grid.dart';
 import 'package:open_course/navigators/navigator_handler.dart';
+import 'package:open_course/widgets/course_metrics.dart';
 import 'package:open_course/widgets/percent_progress_bar.dart';
 
 class CourseCardLarge extends StatelessWidget {
@@ -13,7 +14,7 @@ class CourseCardLarge extends StatelessWidget {
     return DefaultTextStyle(
       style: const TextStyle(color: Color.fromRGBO(255, 255, 255, 0.6)),
       child: GestureDetector(
-        onTap: () => NavigatorHandler.pushLessonPage(context),
+        onTap: () => NavigatorHandler.pushCoursePage(context),
         child: Container(
           margin: const EdgeInsets.fromLTRB(0, 0, 0, 20),
           decoration: BoxDecoration(
@@ -36,146 +37,93 @@ class CourseCardLarge extends StatelessWidget {
               ),
               LayoutGrid(
                 columnSizes: [2.fr, auto],
-                rowSizes: const [auto],
+                rowSizes: const [auto, auto],
                 rowGap: 20,
                 columnGap: 20,
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Wrap(
-                        runSpacing: 10,
-                        spacing: 30,
+                  GridPlacement(
+                      columnStart: 0,
+                      columnSpan: 1,
+                      rowStart: 0,
+                      rowSpan: 1,
+                      child: CourseMetrics()),
+                  GridPlacement(
+                    columnStart: 1,
+                    columnSpan: 1,
+                    rowStart: 0,
+                    rowSpan: 1,
+                    child: Align(
+                      alignment: Alignment.topRight,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Icon(
-                                Icons.note_alt_outlined,
-                                size: 20,
-                                color: Color(0xffffffff),
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Text("Notes: "),
-                              Text(
-                                "8",
-                                style: TextStyle(
-                                    color: Color(0xffffffff),
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ],
+                          Container(
+                            padding: const EdgeInsets.fromLTRB(14, 1, 14, 1),
+                            decoration: BoxDecoration(
+                                color: const Color(0xffFCAFAF),
+                                borderRadius: BorderRadius.circular(3)),
+                            child: const Text(
+                              "Web",
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(color: Color(0xff000000)),
+                            ),
                           ),
-                          Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Icon(
-                                Icons.library_books_outlined,
-                                size: 20,
-                                color: Color(0xffffffff),
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Text("Units: "),
-                              Text(
-                                "8",
-                                style: TextStyle(
-                                    color: Color(0xffffffff),
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ],
+                          const SizedBox(
+                            height: 5,
                           ),
-                          Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Icon(
-                                Icons.book_outlined,
-                                size: 20,
-                                color: Color(0xffffffff),
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Text("Lessons: "),
-                              Text(
-                                "8",
-                                style: TextStyle(
-                                    color: Color(0xffffffff),
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ],
+                          Container(
+                            padding: const EdgeInsets.fromLTRB(14, 1, 14, 1),
+                            decoration: BoxDecoration(
+                                color: const Color(0xffE8FACC),
+                                borderRadius: BorderRadius.circular(3)),
+                            child: const Text(
+                              "Front-End",
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(color: Color(0xff000000)),
+                            ),
                           ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          Container(
+                            padding: const EdgeInsets.fromLTRB(14, 1, 14, 1),
+                            decoration: BoxDecoration(
+                                color: const Color(0xffCFFFF9),
+                                borderRadius: BorderRadius.circular(3)),
+                            child: const Text(
+                              "JavaScript",
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(color: Color(0xff000000)),
+                            ),
+                          )
                         ],
                       ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      const Row(
-                        children: [
-                          Text("Lessons completed: "),
-                          Text(
-                            "12 / 26",
-                            style: TextStyle(
-                                color: Color(0xffffffff),
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      PercentProgressBar(percent: 0.8)
-                    ],
-                  ),
-                  Align(
-                    alignment: Alignment.topRight,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.fromLTRB(14, 1, 14, 1),
-                          decoration: BoxDecoration(
-                              color: const Color(0xffFCAFAF),
-                              borderRadius: BorderRadius.circular(3)),
-                          child: const Text(
-                            "Web",
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(color: Color(0xff000000)),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        Container(
-                          padding: const EdgeInsets.fromLTRB(14, 1, 14, 1),
-                          decoration: BoxDecoration(
-                              color: const Color(0xffE8FACC),
-                              borderRadius: BorderRadius.circular(3)),
-                          child: const Text(
-                            "Front-End",
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(color: Color(0xff000000)),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        Container(
-                          padding: const EdgeInsets.fromLTRB(14, 1, 14, 1),
-                          decoration: BoxDecoration(
-                              color: const Color(0xffCFFFF9),
-                              borderRadius: BorderRadius.circular(3)),
-                          child: const Text(
-                            "JavaScript",
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(color: Color(0xff000000)),
-                          ),
-                        )
-                      ],
                     ),
-                  )
+                  ),
+                  GridPlacement(
+                      columnStart: 0,
+                      columnSpan: 2,
+                      rowStart: 1,
+                      rowSpan: 1,
+                      child: Column(
+                        children: [
+                          const Row(
+                            children: [
+                              Text("Lessons completed: "),
+                              Text(
+                                "12 / 26",
+                                style: TextStyle(
+                                    color: Color(0xffffffff),
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          PercentProgressBar(percent: 0.8)
+                        ],
+                      ))
                 ],
               ),
             ],
