@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_layout_grid/flutter_layout_grid.dart';
 import 'package:open_course/navigators/navigator_handler.dart';
 import 'package:open_course/widgets/course_metrics.dart';
-import 'package:open_course/widgets/percent_progress_bar.dart';
+
+import 'lesson_progression.dart';
 
 class CourseCardLarge extends StatelessWidget {
   const CourseCardLarge({
@@ -105,25 +106,7 @@ class CourseCardLarge extends StatelessWidget {
                       columnSpan: 2,
                       rowStart: 1,
                       rowSpan: 1,
-                      child: Column(
-                        children: [
-                          const Row(
-                            children: [
-                              Text("Lessons completed: "),
-                              Text(
-                                "12 / 26",
-                                style: TextStyle(
-                                    color: Color(0xffffffff),
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          PercentProgressBar(percent: 0.8)
-                        ],
-                      ))
+                      child: LessonProgression())
                 ],
               ),
             ],

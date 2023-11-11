@@ -37,18 +37,21 @@ class _PageScaffoldState extends State<PageScaffold> {
             )
           : null,
       backgroundColor: const Color(0xff171717),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.fromLTRB(
-            widget.horizontalPadding,
-            widget.verticalPadding,
-            widget.horizontalPadding,
-            widget.verticalPadding,
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: widget.children,
+      body: DefaultTextStyle(
+        style: const TextStyle(color: Color.fromRGBO(255, 255, 255, 0.6)),
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(
+              widget.horizontalPadding,
+              widget.verticalPadding,
+              widget.horizontalPadding,
+              widget.verticalPadding,
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: widget.children,
+            ),
           ),
         ),
       ),
