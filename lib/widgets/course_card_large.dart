@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_layout_grid/flutter_layout_grid.dart';
+import 'package:open_course/db_models/course.dart';
 import 'package:open_course/navigators/navigator_handler.dart';
 import 'package:open_course/widgets/course_metrics.dart';
 
 import 'lesson_progression.dart';
 
 class CourseCardLarge extends StatelessWidget {
-  const CourseCardLarge({
+  CourseCardLarge({
     super.key,
+    required this.course,
   });
+
+  Course course;
+
+  late String title = course.title ?? "";
 
   @override
   Widget build(BuildContext context) {
@@ -26,9 +32,9 @@ class CourseCardLarge extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                "Course title",
-                style: TextStyle(
+              Text(
+                title,
+                style: const TextStyle(
                     color: Color(0xffffffff),
                     fontWeight: FontWeight.bold,
                     fontSize: 20),
@@ -101,7 +107,7 @@ class CourseCardLarge extends StatelessWidget {
                       ),
                     ),
                   ),
-                  GridPlacement(
+                  const GridPlacement(
                       columnStart: 0,
                       columnSpan: 2,
                       rowStart: 1,

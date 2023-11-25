@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:open_course/db_models/course.dart';
 import 'package:open_course/widgets/percent_progress_bar.dart';
 
 class CourseCard extends StatelessWidget {
-  const CourseCard({
+  CourseCard({
     super.key,
+    required this.course,
   });
+
+  Course course;
+
+  late String title = course.title ?? "";
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +23,9 @@ class CourseCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            "Course title",
-            style: TextStyle(
+          Text(
+            title,
+            style: const TextStyle(
                 color: Color(0xffffffff),
                 fontWeight: FontWeight.bold,
                 fontSize: 16),
