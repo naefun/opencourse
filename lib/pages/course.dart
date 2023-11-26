@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:open_course/db_models/course.dart';
 import 'package:open_course/widgets/course_metrics.dart';
 import 'package:open_course/widgets/course_tag.dart';
 import 'package:open_course/widgets/lesson_dropdown_selector.dart';
@@ -6,7 +7,9 @@ import 'package:open_course/widgets/lesson_progression.dart';
 import 'package:open_course/widgets/page_scaffold.dart';
 
 class CoursePage extends StatefulWidget {
-  const CoursePage({super.key});
+  const CoursePage({super.key, required this.course});
+
+  final Course course;
 
   @override
   State<CoursePage> createState() => _CoursePageState();

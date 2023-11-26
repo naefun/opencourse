@@ -21,7 +21,7 @@ class CourseCardLarge extends StatelessWidget {
     return DefaultTextStyle(
       style: const TextStyle(color: Color.fromRGBO(255, 255, 255, 0.6)),
       child: GestureDetector(
-        onTap: () => NavigatorHandler.pushCoursePage(context),
+        onTap: () => NavigatorHandler.pushCoursePage(context, course),
         child: Container(
           margin: const EdgeInsets.fromLTRB(0, 0, 0, 20),
           decoration: BoxDecoration(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:open_course/db_models/course.dart';
 import 'package:open_course/navigation.dart';
 import 'package:open_course/pages/course.dart';
 import 'package:open_course/pages/logged_out_pages/landing.dart';
@@ -30,10 +31,10 @@ class NavigatorHandler {
     );
   }
 
-  static void pushCoursePage(BuildContext context) {
+  static void pushCoursePage(BuildContext context, Course course) {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => const CoursePage(),
+        builder: (context) => CoursePage(course: course),
       ),
     );
   }
