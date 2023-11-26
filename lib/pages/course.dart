@@ -18,22 +18,26 @@ class CoursePage extends StatefulWidget {
 class _CoursePageState extends State<CoursePage> {
   @override
   Widget build(BuildContext context) {
+    final String courseTitle =
+        getFieldText(widget.course.title, "Unnamed course");
+    final String courseDesc = getFieldText(widget.course.description, "");
+
     return PageScaffold(
       includeAppBar: true,
       appBarHeading: "Course",
       includeAppBarButton: false,
       children: [
-        const Text(
-          "Flutter for beginners",
-          style: TextStyle(
+        Text(
+          courseTitle,
+          style: const TextStyle(
               fontSize: 30,
-              color: Color(0xFFFFFFFF),
+              color: Color.fromARGB(255, 255, 255, 255),
               fontWeight: FontWeight.bold),
         ),
         const SizedBox(
           height: 10,
         ),
-        const Text("Learn how to create cross platform apps using flutter."),
+        Text(courseDesc),
         const SizedBox(
           height: 30,
         ),
@@ -86,5 +90,11 @@ class _CoursePageState extends State<CoursePage> {
         )
       ],
     );
+  }
+
+  String getFieldText(String? field, String fallbackText) {
+    String result = field != null && field.isNotEmpty ? field : fallbackText;
+
+    return result;
   }
 }
