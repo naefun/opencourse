@@ -5,7 +5,7 @@ class LessonActions extends StatefulWidget {
   const LessonActions({Key? key}) : super(key: key);
 
   @override
-  _LessonActionsState createState() => _LessonActionsState();
+  State<LessonActions> createState() => _LessonActionsState();
 }
 
 class _LessonActionsState extends State<LessonActions> {

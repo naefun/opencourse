@@ -35,7 +35,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       backgroundColor: const Color(0xff171717),
-      appBar: AppBarLoggedOut(
+      appBar: const AppBarLoggedOut(
         showLogInButton: false,
       ),
       body: SafeArea(

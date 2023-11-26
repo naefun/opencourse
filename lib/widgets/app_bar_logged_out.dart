@@ -5,13 +5,13 @@ import 'package:open_course/pages/logged_out_pages/landing.dart';
 import 'package:open_course/pages/logged_out_pages/login.dart';
 
 class AppBarLoggedOut extends PreferredSize {
-  AppBarLoggedOut(
+  const AppBarLoggedOut(
       {super.key,
       super.child = const SizedBox(),
       super.preferredSize = const Size.fromHeight(100),
       this.showLogInButton = true});
 
-  bool showLogInButton;
+  final bool showLogInButton;
 
   @override
   Widget build(BuildContext context) {

@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class PercentProgressBar extends StatelessWidget {
-  PercentProgressBar({
+  const PercentProgressBar({
     super.key,
     required this.percent,
   });
 
-  double percent;
+  final double percent;
 
   @override
   Widget build(BuildContext context) {

@@ -12,9 +12,9 @@ class CourseCardLarge extends StatelessWidget {
     required this.course,
   });
 
-  Course course;
+  final Course course;
 
-  late String title = course.title ?? "";
+  late final String title = course.title ?? "";
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +48,7 @@ class CourseCardLarge extends StatelessWidget {
                 rowGap: 20,
                 columnGap: 20,
                 children: [
-                  GridPlacement(
+                  const GridPlacement(
                       columnStart: 0,
                       columnSpan: 1,
                       rowStart: 0,

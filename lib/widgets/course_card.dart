@@ -8,9 +8,9 @@ class CourseCard extends StatelessWidget {
     required this.course,
   });
 
-  Course course;
+  final Course course;
 
-  late String title = course.title ?? "";
+  late final String title = course.title ?? "";
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +96,7 @@ class CourseCard extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          PercentProgressBar(percent: 0.8),
+          const PercentProgressBar(percent: 0.8),
         ],
       ),
     );

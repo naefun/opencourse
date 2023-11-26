@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
 class NotesTab extends StatelessWidget {
-  NotesTab(
+  const NotesTab(
       {super.key,
       this.active = false,
       this.showLeftBorder = true,
       this.title = "New note"});
 
-  bool active;
-  bool showLeftBorder;
-  String title;
+  final bool active;
+  final bool showLeftBorder;
+  final String title;
 
   @override
   Widget build(BuildContext context) {

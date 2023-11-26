@@ -1,9 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_layout_grid/flutter_layout_grid.dart';
 import 'package:open_course/widgets/completed_course_graph.dart';
-import 'package:open_course/widgets/course_card.dart';
 import 'package:open_course/widgets/course_cards.dart';
 import 'package:open_course/widgets/page_scaffold.dart';
 import 'package:open_course/widgets/resume_course_card.dart';
@@ -68,7 +66,7 @@ class _HomePageState extends State<HomePage> {
         const SizedBox(
           height: 20,
         ),
-        CourseCards(),
+        const CourseCards(),
       ],
     );
   }

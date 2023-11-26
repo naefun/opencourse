@@ -111,19 +111,19 @@ class _NotesSectionState extends State<NotesSection> {
   }
 
   void addNote() {
-    List<LessonNote> _notes = List.from(notes);
-    _notes.add(LessonNote("New note", ""));
+    List<LessonNote> notesCpy = List.from(notes);
+    notesCpy.add(LessonNote("New note", ""));
     setState(() {
-      notes = _notes;
+      notes = notesCpy;
     });
   }
 
   void updateNoteContent(String input) {
-    String _content = notes[activeNoteIndex].getContent();
-    _content = input;
-    LessonNote _note = notes[activeNoteIndex];
-    _note.setContent(_content);
-    notes[activeNoteIndex] = _note;
+    String content = notes[activeNoteIndex].getContent();
+    content = input;
+    LessonNote note = notes[activeNoteIndex];
+    note.setContent(content);
+    notes[activeNoteIndex] = note;
   }
 
   void tabOnTap(GlobalKey dataKey, int index) {

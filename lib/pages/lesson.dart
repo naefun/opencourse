@@ -16,13 +16,13 @@ class _LessonPageState extends State<LessonPage> {
 
   @override
   Widget build(BuildContext context) {
-    return PageScaffold(
+    return const PageScaffold(
       includeAppBar: true,
       appBarHeading: "Lesson",
       appBarSubheading: "1 / 12",
       includeAppBarButton: false,
       horizontalPadding: 0,
-      children: const [
+      children: [
         Padding(
           padding: EdgeInsets.only(left: 20, right: 20, bottom: 10),
           child: Text(

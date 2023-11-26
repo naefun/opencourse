@@ -3,10 +3,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 class YoutubeVideoPositionSeeker extends StatelessWidget {
-  ///
-  YoutubeVideoPositionSeeker({super.key, required this.controller});
+  const YoutubeVideoPositionSeeker({super.key, required this.controller});
 
-  YoutubePlayerController controller;
+  final YoutubePlayerController controller;
 
   @override
   Widget build(BuildContext context) {

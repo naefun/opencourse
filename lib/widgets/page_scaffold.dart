@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:open_course/widgets/app_bar_logged_in.dart';
 
 class PageScaffold extends StatefulWidget {
-  PageScaffold({
+  const PageScaffold({
     Key? key,
     required this.children,
     this.includeAppBar = false,
@@ -13,13 +13,13 @@ class PageScaffold extends StatefulWidget {
     this.horizontalPadding = 20,
   }) : super(key: key);
 
-  List<Widget> children;
-  bool includeAppBar;
-  String appBarHeading;
-  String appBarSubheading;
-  bool includeAppBarButton;
-  double verticalPadding;
-  double horizontalPadding;
+  final List<Widget> children;
+  final bool includeAppBar;
+  final String appBarHeading;
+  final String appBarSubheading;
+  final bool includeAppBarButton;
+  final double verticalPadding;
+  final double horizontalPadding;
 
   @override
   State<PageScaffold> createState() => _PageScaffoldState();

@@ -34,7 +34,7 @@ class _CoursePageState extends State<CoursePage> {
         const SizedBox(
           height: 30,
         ),
-        Wrap(
+        const Wrap(
           spacing: 10,
           children: [
             CourseTag(
@@ -54,7 +54,7 @@ class _CoursePageState extends State<CoursePage> {
         const SizedBox(
           height: 30,
         ),
-        CourseMetrics(),
+        const CourseMetrics(),
         const SizedBox(
           height: 20,
         ),
@@ -67,14 +67,14 @@ class _CoursePageState extends State<CoursePage> {
         const LessonDropdownSelector(),
         Center(
           child: Container(
-            padding: EdgeInsets.all(1),
+            padding: const EdgeInsets.all(1),
             decoration: BoxDecoration(
               border: Border.all(
-                color: Color(0xff49C29D),
+                color: const Color(0xff49C29D),
               ),
               borderRadius: BorderRadius.circular(5),
             ),
-            child: Icon(
+            child: const Icon(
               Icons.add,
               color: Color(0xff49C29D),
               size: 30,

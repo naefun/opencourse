@@ -7,7 +7,7 @@ class LessonSelectorItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return const Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
@@ -17,7 +17,7 @@ class LessonSelectorItem extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(right: 10),
+          padding: EdgeInsets.only(right: 10),
           child: Icon(
             Icons.play_arrow_outlined,
             size: 28,

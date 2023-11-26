@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 class YoutubeJumpButton extends StatelessWidget {
-  YoutubeJumpButton({
+  const YoutubeJumpButton({
     super.key,
     required this.controller,
     this.jumpForward = true,
   });
 
   final YoutubePlayerController controller;
-  bool jumpForward;
+  final bool jumpForward;
 
   @override
   Widget build(BuildContext context) {

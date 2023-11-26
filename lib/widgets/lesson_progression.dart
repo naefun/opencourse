@@ -8,9 +8,9 @@ class LessonProgression extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       children: [
-        const Row(
+        Row(
           children: [
             Text("Lessons completed: "),
             Text(
@@ -20,7 +20,7 @@ class LessonProgression extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(
+        SizedBox(
           height: 10,
         ),
         PercentProgressBar(percent: 0.8)

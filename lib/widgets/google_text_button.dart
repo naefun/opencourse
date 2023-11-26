@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class GoogleTextButton extends StatelessWidget {
-  GoogleTextButton({super.key, required this.text, required this.action});
+  const GoogleTextButton({super.key, required this.text, required this.action});
 
-  String text;
-  Function action;
+  final String text;
+  final Function action;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,8 @@ class GoogleTextButton extends StatelessWidget {
       onTap: () => action(),
       child: Container(
         decoration: BoxDecoration(
-            color: const Color(0xff4285F4), borderRadius: BorderRadius.circular(10)),
+            color: const Color(0xff4285F4),
+            borderRadius: BorderRadius.circular(10)),
         child: Row(mainAxisSize: MainAxisSize.min, children: [
           Container(
             decoration: BoxDecoration(

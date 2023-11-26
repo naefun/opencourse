@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class CourseTag extends StatelessWidget {
-  CourseTag({super.key, required this.text, required this.color});
+  const CourseTag({super.key, required this.text, required this.color});
 
-  String text;
-  Color color;
+  final String text;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -13,10 +13,10 @@ class CourseTag extends StatelessWidget {
         color: color,
         borderRadius: BorderRadius.circular(7),
       ),
-      padding: EdgeInsets.fromLTRB(20, 1, 20, 1),
+      padding: const EdgeInsets.fromLTRB(20, 1, 20, 1),
       child: Text(
         text,
-        style: TextStyle(
+        style: const TextStyle(
           color: Color(0xff000000),
         ),
       ),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CourseMetrics extends StatelessWidget {
-  CourseMetrics({super.key, this.showAsColumn = true});
+  const CourseMetrics({super.key, this.showAsColumn = true});
 
-  bool showAsColumn;
+  final bool showAsColumn;
 
   @override
   Widget build(BuildContext context) {

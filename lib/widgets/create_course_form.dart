@@ -5,12 +5,12 @@ import 'package:flutter_layout_grid/flutter_layout_grid.dart';
 import 'package:open_course/controllers/database_controller.dart';
 
 class CreateCourseForm extends StatefulWidget {
-  CreateCourseForm({
+  const CreateCourseForm({
     super.key,
     required this.function,
   });
 
-  Function(bool) function;
+  final Function(bool) function;
 
   @override
   State<CreateCourseForm> createState() => _CreateCourseFormState();
@@ -187,8 +187,7 @@ class _CreateCourseFormState extends State<CreateCourseForm> {
                 ),
                 GestureDetector(
                   onTap: () => {
-                    print(
-                        "${titleController.text} ${descriptionController.text}"),
+                    log("${titleController.text} ${descriptionController.text}"),
                     DatabaseController.createCourse(
                         titleController.text, descriptionController.text)
                   },

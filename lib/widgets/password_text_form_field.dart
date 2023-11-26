@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class PasswordTextFormField extends StatefulWidget {
-  PasswordTextFormField(
+  const PasswordTextFormField(
       {super.key, required this.validator, required this.controller});
 
-  Function(String? value) validator;
-  TextEditingController controller;
+  final Function(String? value) validator;
+  final TextEditingController controller;
 
   @override
   State<PasswordTextFormField> createState() => _PasswordTextFormFieldState();

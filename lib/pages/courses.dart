@@ -12,6 +12,6 @@ class CoursesPage extends StatefulWidget {
 class _CoursesPageState extends State<CoursesPage> {
   @override
   Widget build(BuildContext context) {
-    return PageScaffold(children: [CourseCardsLarge()]);
+    return const PageScaffold(children: [CourseCardsLarge()]);
   }
 }

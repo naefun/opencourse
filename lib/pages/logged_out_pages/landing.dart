@@ -17,9 +17,9 @@ class _LandingPageState extends State<LandingPage> {
     return Scaffold(
         extendBodyBehindAppBar: true,
         backgroundColor: const Color(0xff171717),
-        appBar: AppBarLoggedOut(
-          preferredSize: const Size.fromHeight(100),
-          child: const Text("Test"),
+        appBar: const AppBarLoggedOut(
+          preferredSize: Size.fromHeight(100),
+          child: Text("Test"),
         ),
         body: Stack(
           children: [
@@ -75,7 +75,7 @@ class _LandingPageState extends State<LandingPage> {
                           const SizedBox(
                             height: 25,
                           ),
-                          Container(
+                          SizedBox(
                             width: 330,
                             child: RichText(
                               text: TextSpan(

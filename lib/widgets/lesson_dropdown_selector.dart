@@ -16,9 +16,10 @@ class _LessonDropdownSelectorState extends State<LessonDropdownSelector> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 20),
+      margin: const EdgeInsets.only(bottom: 20),
       decoration: BoxDecoration(
-          color: Color(0xff242424), borderRadius: BorderRadius.circular(14)),
+          color: const Color(0xff242424),
+          borderRadius: BorderRadius.circular(14)),
       child: Column(
         children: [
           GestureDetector(
@@ -29,16 +30,16 @@ class _LessonDropdownSelectorState extends State<LessonDropdownSelector> {
             },
             child: Container(
               decoration: BoxDecoration(
-                  color: Color(0xff111111),
+                  color: const Color(0xff111111),
                   borderRadius: BorderRadius.circular(14)),
-              padding: EdgeInsets.fromLTRB(20, 8, 20, 8),
+              padding: const EdgeInsets.fromLTRB(20, 8, 20, 8),
               child: LayoutGrid(
                 columnSizes: [2.fr, auto],
                 rowSizes: const [auto],
                 rowGap: 20,
                 columnGap: 20,
                 children: [
-                  Column(
+                  const Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
@@ -83,7 +84,7 @@ class _LessonDropdownSelectorState extends State<LessonDropdownSelector> {
                         showLessons == false
                             ? Icons.expand_more
                             : Icons.expand_less_outlined,
-                        color: Color(0xffffffff),
+                        color: const Color(0xffffffff),
                         size: 28,
                       ),
                     ),
@@ -94,8 +95,8 @@ class _LessonDropdownSelectorState extends State<LessonDropdownSelector> {
           ),
           if (showLessons)
             Container(
-              padding: EdgeInsets.all(20),
-              child: Column(
+              padding: const EdgeInsets.all(20),
+              child: const Column(
                 children: [
                   LessonSelectorItem(),
                   SizedBox(

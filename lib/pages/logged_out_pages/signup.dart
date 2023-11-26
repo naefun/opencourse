@@ -34,7 +34,7 @@ class _SignupPageState extends State<SignupPage> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       backgroundColor: const Color(0xff171717),
-      appBar: AppBarLoggedOut(
+      appBar: const AppBarLoggedOut(
         showLogInButton: false,
       ),
       body: SafeArea(

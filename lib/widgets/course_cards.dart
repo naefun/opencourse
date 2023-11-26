@@ -11,7 +11,7 @@ class CourseCards extends StatefulWidget {
   const CourseCards({Key? key}) : super(key: key);
 
   @override
-  _CourseCardsState createState() => _CourseCardsState();
+  State<CourseCards> createState() => _CourseCardsState();
 }
 
 class _CourseCardsState extends State<CourseCards> {

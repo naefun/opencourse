@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:open_course/widgets/create_course_button.dart';
 
 class AppBarLoggedIn extends PreferredSize {
-  AppBarLoggedIn(
+  const AppBarLoggedIn(
       {super.key,
       super.child = const SizedBox(),
       super.preferredSize = const Size.fromHeight(100),
@@ -10,9 +10,9 @@ class AppBarLoggedIn extends PreferredSize {
       this.subheading = "",
       this.showCreateCourseButton = true});
 
-  String heading;
-  String subheading;
-  bool showCreateCourseButton;
+  final String heading;
+  final String subheading;
+  final bool showCreateCourseButton;
 
   @override
   Widget build(BuildContext context) {
