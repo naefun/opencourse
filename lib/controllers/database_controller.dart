@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:open_course/db_models/course.dart';
 
@@ -17,11 +15,16 @@ class DatabaseController {
         .snapshots();
   }
 
-  static void createCourse(String title, String description) {
-    getDb().collection("courses").add(<String, dynamic>{
+  static Future<Course?> createCourse(String title, String description) async {
+    Course? createdCourse;
+
+    await getDb().collection("courses").add(<String, dynamic>{
       "title": title,
       "description": description,
       "units": [],
-    }).then((value) => log('Document added with ID: ${value.id}'));
+    }).then((value) => createdCourse = Course(
+        title: title, description: description, units: [], docId: value.id));
+
+    return createdCourse;
   }
 }

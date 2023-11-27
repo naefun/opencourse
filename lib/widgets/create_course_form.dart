@@ -1,16 +1,19 @@
+import 'dart:async';
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_layout_grid/flutter_layout_grid.dart';
 import 'package:open_course/controllers/database_controller.dart';
+import 'package:open_course/db_models/course.dart';
+import 'package:open_course/navigators/navigator_handler.dart';
 
 class CreateCourseForm extends StatefulWidget {
   const CreateCourseForm({
     super.key,
-    required this.function,
+    required this.closeFormFunction,
   });
 
-  final Function(bool) function;
+  final Function(bool) closeFormFunction;
 
   @override
   State<CreateCourseForm> createState() => _CreateCourseFormState();
@@ -20,6 +23,25 @@ class _CreateCourseFormState extends State<CreateCourseForm> {
   TextEditingController descriptionController = TextEditingController();
 
   TextEditingController titleController = TextEditingController();
+
+  Course? createdCourse;
+
+  bool _showSuccessMessage = false;
+
+  final Completer<void> _futureDelayCompleter = Completer<void>();
+  bool _futureDelayIsDisposed = false;
+
+  void updateCreatedCourse(Course course) {
+    setState(() {
+      createdCourse = course;
+    });
+  }
+
+  void _setShowSuccessMessage(bool value) {
+    setState(() {
+      _showSuccessMessage = value;
+    });
+  }
 
   final GlobalKey<FormState> _createCourseFormKey = GlobalKey<FormState>();
 
@@ -98,6 +120,7 @@ class _CreateCourseFormState extends State<CreateCourseForm> {
               height: 10,
             ),
             TextFormField(
+              validator: _validateText,
               controller: titleController,
               style: const TextStyle(
                 color: Color(0xffffffff),
@@ -160,7 +183,41 @@ class _CreateCourseFormState extends State<CreateCourseForm> {
               ),
             ),
             const SizedBox(
-              height: 40,
+              height: 20,
+            ),
+            _showSuccessMessage == true
+                ? successMessage(createdCourse)
+                : const SizedBox(),
+            const SizedBox(
+              height: 20,
+            ),
+            GestureDetector(
+              onTap: () => {
+                log("${titleController.text} ${descriptionController.text}"),
+                if (_createCourseFormKey.currentState!.validate())
+                  {
+                    createCourse(
+                        titleController.text, descriptionController.text)
+                  }
+              },
+              child: Container(
+                padding: const EdgeInsets.all(8),
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: const Color(0xffFFA500),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: const Center(
+                  child: Text(
+                    "Create",
+                    style: TextStyle(
+                        color: Color(0xffffffff), fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 30,
             ),
             LayoutGrid(
               columnSizes: [1.fr, 1.fr],
@@ -168,7 +225,7 @@ class _CreateCourseFormState extends State<CreateCourseForm> {
               columnGap: 20,
               children: [
                 GestureDetector(
-                  onTap: () => widget.function(true),
+                  onTap: () => widget.closeFormFunction(true),
                   child: Container(
                     padding: const EdgeInsets.all(8),
                     width: MediaQuery.of(context).size.width * 0.5,
@@ -178,7 +235,7 @@ class _CreateCourseFormState extends State<CreateCourseForm> {
                     ),
                     child: const Center(
                         child: Text(
-                      "Cancel",
+                      "Close",
                       style: TextStyle(
                           color: Color(0xffffffff),
                           fontWeight: FontWeight.bold),
@@ -186,21 +243,17 @@ class _CreateCourseFormState extends State<CreateCourseForm> {
                   ),
                 ),
                 GestureDetector(
-                  onTap: () => {
-                    log("${titleController.text} ${descriptionController.text}"),
-                    DatabaseController.createCourse(
-                        titleController.text, descriptionController.text)
-                  },
+                  onTap: () => {clearFields()},
                   child: Container(
                     padding: const EdgeInsets.all(8),
                     width: MediaQuery.of(context).size.width * 0.5,
                     decoration: BoxDecoration(
-                      color: const Color(0xffFFA500),
+                      color: const Color(0xff171717),
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: const Center(
                       child: Text(
-                        "Create",
+                        "Clear",
                         style: TextStyle(
                             color: Color(0xffffffff),
                             fontWeight: FontWeight.bold),
@@ -216,5 +269,87 @@ class _CreateCourseFormState extends State<CreateCourseForm> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _futureDelayCompleter.complete();
+    _futureDelayIsDisposed = true;
+
+    super.dispose();
+  }
+
+  void clearFields() {
+    titleController.text = "";
+    descriptionController.text = "";
+  }
+
+  String? _validateText(String? text) {
+    if (text == null || text.isEmpty) {
+      return "Field cannot be empty";
+    }
+
+    return null;
+  }
+
+  void createCourse(String title, String desc) async {
+    Course? course = await DatabaseController.createCourse(title, desc);
+    if (course != null) {
+      updateCreatedCourse(course);
+    }
+    showSuccessMessage();
+    clearFields();
+    log("something logged");
+  }
+
+  Widget successMessage(Course? createdCourse) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(10),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(6),
+          color: const Color(0xff49C29D)),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          const Text(
+            "Course succesfully created.",
+            style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+          ),
+          const SizedBox(
+            width: 10,
+          ),
+          GestureDetector(
+            onTap: () => {
+              widget.closeFormFunction(true),
+              NavigatorHandler.pushCoursePage(context, createdCourse!),
+            },
+            child: const Text(
+              "View",
+              style: TextStyle(color: Color(0xff115E46)),
+              overflow: TextOverflow.ellipsis,
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Future<void> showSuccessMessage() async {
+    _setShowSuccessMessage(true);
+
+    try {
+      await Future.delayed(const Duration(seconds: 3), () {
+        setState(() {
+          _setShowSuccessMessage(false);
+        });
+      });
+
+      if (_futureDelayIsDisposed) {
+        _futureDelayCompleter.complete();
+      }
+    } catch (e) {
+      log(e.toString());
+    }
   }
 }

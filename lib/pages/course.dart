@@ -43,6 +43,7 @@ class _CoursePageState extends State<CoursePage> {
         ),
         const Wrap(
           spacing: 10,
+          runSpacing: 10,
           children: [
             CourseTag(
               text: "Web",

@@ -43,7 +43,7 @@ class _CreateCourseButtonState extends State<CreateCourseButton> {
               child: Align(
                   alignment: Alignment.center,
                   child: CreateCourseForm(
-                    function: (value) => cancelFunction(value),
+                    closeFormFunction: (value) => closeOverlayFunction(value),
                   )),
             ),
           ),
@@ -54,8 +54,8 @@ class _CreateCourseButtonState extends State<CreateCourseButton> {
     Overlay.of(context, debugRequiredFor: widget).insert(overlayEntry!);
   }
 
-  cancelFunction(bool cancelPressed) {
-    if (cancelPressed) {
+  closeOverlayFunction(bool closePressed) {
+    if (closePressed) {
       removeCreateCourseOverlay();
     }
   }
